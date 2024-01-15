@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Main</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="static/css/style.css">
+ <script src="static/js/script.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf-8">
          $(document).ready(function() {
@@ -15,11 +15,79 @@
                 socket.emit('my event', {data: $('#emit_data').val()});
                 return false;
             });
+            var star_rating = 0;
+			console.log(star_rating);
+			$(".get_value").click(function () {
+				star_rating = '5';
+				console.log(star_rating);
+				socket.emit('test', {data: star_rating});
+			});
+<!--            socket.on('wow', function(data) {-->
+<!--    		console.log(data);})-->
         });
     </script>
+ <title>Grids</title>
 </head>
+
 <body>
-<h1>Hello world!</h1>
-<div id="log"></div>
+
+<div class="board">
+	<div class="well_H0"  id="0" data-cell> 6 </div>
+ 	<div class="well_H1"  id="1" data-cell> 6 </div>
+ 	<div class="well_H2"  id="2" data-cell> 6 </div>
+ 	<div class="well_H3"  id="3" data-cell> 6 </div>
+ 	<div class="well_H4"  id="4" data-cell> 6 </div>
+ 	<div class="well_H5"  id="5" data-cell> 6 </div>
+
+	<div class="kalakh_H"  id="6" data-cell> 0 </div>
+
+  	<div class="well_C5"  id="7"  data-cell> 6 </div>
+	<div class="well_C4"  id="8"  data-cell> 6 </div>
+	<div class="well_C3"  id="9" data-cell> 6 </div>
+	<div class="well_C2"  id="10" data-cell> 6 </div>
+	<div class="well_C1"  id="11" data-cell> 6 </div>
+	<div class="well_C0"  id="12" data-cell> 6 </div>
+
+  	<div class="kalakh_C"  id="13" data-cell> 0 </div>
+
+	<div class="info" id="info" ></div>
+
+</div>
+<p></p>
+
+<div class="level">
+	<div class="level__result"></div>
+	<div class="level__star1 get_value"></div>
+	<div class="level__star2 get_value"></div>
+	<div class="level__star3 get_value"></div>
+	<div class="level__star4 get_value"></div>
+	<div class="level__star5 get_value"></div>
+</div>
+
+<div class="winning-message" id="winningMessage">
+	<div id="winningMessageText"></div>
+	<button id="restartButton" onclick="startGame()">Restart</button>
+</div>
+
+<div id="log" style="font-size:10px;"></div>
+
+<audio id="click_sound" src="static/js/click.wav" autoplay="false" ></audio>
+<audio id="grab_sound" src="static/js/grab.wav" autoplay="false" ></audio>
+
+<script>document.addEventListener('load', startGame()); document.addEventListener('load', executeLevel());</script>
+
+<!--<script>-->
+<!--	var star_rating = 0;-->
+<!--	console.log(star_rating);-->
+<!--	$(".get_value").click(function () {-->
+<!--		star_rating = '5';-->
+<!--		console.log(star_rating);-->
+<!--		socket.emit('test', {data: 'star_rating'});-->
+<!--	});-->
+
+
+<!--</script>-->
+
 </body>
+
 </html>

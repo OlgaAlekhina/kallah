@@ -17,6 +17,11 @@ def index():
 def test_message(message):
     emit('my response', {'data': message['data']})
 
+@socketio.on('test')
+def handle_test(data):
+    print('Data: ', data)
+    emit('wow', {'data': 'Got response from server'})
+
 @socketio.on('connect')
 def test_connect():
     emit('my response', {'data': 'Connected'})

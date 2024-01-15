@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 5vh;
+  width: 100%;
+  min-height: 1vh;
+}
+
+
+[class^="well"] {
+  background-color: skyblue;
+	color: dimgray;
+  /* Размещаем контейнеры по центру */
+  display: grid;
+  place-items: center;
+	border-radius: 50%;
+}
+
+[class^="well"].my_turn{
+	color: black;
+}
+
+.my_turn:hover {
+	background-color: DeepSkyBlue;
+	cursor: pointer;
+}
+
+.last_well {
+	border-style: solid;
+  	border-color: DodgerBlue;
+	border-width: thick;
+}
+
+
+[class^="kalakh"] {
+  background-color: skyblue;
+	color: dimgray;
+  /* Размещаем контейнеры по центру */
+  display: grid;
+  place-items: center;
+	border-top-left-radius: 50% 16%;
+	border-top-right-radius: 50% 16%;
+	border-bottom-left-radius: 50% 16%;
+	border-bottom-right-radius: 50% 16%;
+}
+
+.info {
+	display: grid;
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+  	font-size: 5vh;
+  	place-items: center;
+}
+
+.board {
+	width: 50vw;
+	aspect-ratio: 8 / 3;
+	
+	display: grid;
+  	gap: 10px;
+  
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+
+  /* ! */
+  grid-template-areas:
+    "KC C0 C1 C2 C3 C4 C5 KH"
+    "KC  R  R  R  R  R  R KH"
+    "KC H0 H1 H2 H3 H4 H5 KH";
+}
+
+.well_C0 {
+  grid-area: C0;
+}
+
+.well_C1 {
+  grid-area: C1;
+}
+
+.well_C2 {
+  grid-area: C2;
+}
+
+.well_C3 {
+  grid-area: C3;
+}
+
+.well_C4 {
+  grid-area: C4;
+}
+
+.well_C5 {
+  grid-area: C5;
+}
+
+
+.well_H0 {
+  grid-area: H0;
+}
+
+.well_H1 {
+  grid-area: H1;
+}
+
+.well_H2 {
+  grid-area: H2;
+}
+
+.well_H3 {
+  grid-area: H3;
+}
+
+.well_H4 {
+  grid-area: H4;
+}
+
+.well_H5 {
+  grid-area: H5;
+}
+
+.kalakh_C {
+  grid-area: KC;
+}
+
+.kalakh_H {
+  grid-area: KH;
+}
+
+.info {
+  grid-area: R;
+}
+
+
+/* Классы уровня игры */
+.level {
+   	position: relative;
+	left: 10vw;
+	top: 5vw;
+   	width: 15vw;
+	min-width: 150px;
+	aspect-ratio: 8 / 1;
+   	//background: transparent;
+   	display: grid;
+	grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr 
+	grid-template-rows: 1fr;
+	grid-template-areas:
+	"RR RS1 RS2 RS3 RS4 RS5";
+   	border-radius: 5px;
+   	box-shadow: 0 0 0.5vw #b3acac;
+}
+
+.level__result {
+  grid-area: RR;
+}
+
+.level__star1 {
+  grid-area: RS1;
+}
+
+.level__star2 {
+  grid-area: RS2;
+}
+
+.level__star3 {
+  grid-area: RS3;
+}
+
+.level__star4 {
+  grid-area: RS4;
+}
+
+.level__star5 {
+  grid-area: RS5;
+}
+
+.level__result {
+	font-family: Arial, Helvetica, sans-serif;
+   	font-size: max(20px, 2vw);
+   	color: black;
+	place-items: center;
+   	pointer-events: none;
+	display: grid;
+}
+
+[class^="level__star"] {
+	font-family: Arial, Helvetica, sans-serif;
+   	font-size: max(20px, 2vw);			
+   	cursor: pointer;
+   	color: #dabd18b2;
+	display: grid;
+	place-items: center;
+	padding: 0 0 0.5vw;
+   	transition: filter linear .3s;
+}
+
+[class^="level__star"]:hover {
+   filter: drop-shadow(1px 1px 4px gold);
+}
+
+
+
+
