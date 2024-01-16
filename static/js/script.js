@@ -148,6 +148,15 @@ async function handleWellClick(e)
 		return;
 
 	initSide(nSide);
+level = Array.from(document.getElementById("level_result").innerHTML)[0];
+console.log(level);
+let well_list = [];
+for(var i = 0; i < 14; i++){
+    well_list.push(document.getElementById(i).innerHTML);
+}
+console.log(well_list)
+var socket = io();
+socket.emit('test', {well_list, level});
 }
 
 //Функция возвращает сторону лунки well.

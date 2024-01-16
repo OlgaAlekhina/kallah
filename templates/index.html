@@ -15,13 +15,13 @@
                 socket.emit('my event', {data: $('#emit_data').val()});
                 return false;
             });
-            var star_rating = 0;
-			console.log(star_rating);
-			$(".get_value").click(function () {
-				star_rating = '5';
-				console.log(star_rating);
-				socket.emit('test', {data: star_rating});
-			});
+<!--            var star_rating = 0;-->
+<!--			console.log(star_rating);-->
+<!--			$(".get_value").click(function () {-->
+<!--				star_rating = '5';-->
+<!--				console.log(star_rating);-->
+<!--				socket.emit('test', {data: star_rating});-->
+<!--			});-->
 <!--            socket.on('wow', function(data) {-->
 <!--    		console.log(data);})-->
         });
@@ -56,7 +56,7 @@
 <p></p>
 
 <div class="level">
-	<div class="level__result"></div>
+	<div class="level__result" id="level_result"></div>
 	<div class="level__star1 get_value"></div>
 	<div class="level__star2 get_value"></div>
 	<div class="level__star3 get_value"></div>
@@ -75,18 +75,6 @@
 <audio id="grab_sound" src="static/js/grab.wav" autoplay="false" ></audio>
 
 <script>document.addEventListener('load', startGame()); document.addEventListener('load', executeLevel());</script>
-
-<!--<script>-->
-<!--	var star_rating = 0;-->
-<!--	console.log(star_rating);-->
-<!--	$(".get_value").click(function () {-->
-<!--		star_rating = '5';-->
-<!--		console.log(star_rating);-->
-<!--		socket.emit('test', {data: 'star_rating'});-->
-<!--	});-->
-
-
-<!--</script>-->
 
 </body>
 
