@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit
 from threading import Lock
+from kalakh_web1 import Board, Player, BOTTOM_PLAYER
 
 
 app = Flask(__name__)
@@ -20,6 +21,14 @@ def test_message(message):
 @socketio.on('test')
 def handle_test(data):
     print('Data: ', data)
+    well_list = data.get('well_list')
+    wells = []
+    for well in well_list:
+        wells.append(int(well))
+    print(wells)
+    my_board = Board(wells)
+    player = Player(BOTTOM_PLAYER, 2)
+    print(player.best_move(my_board))
     emit('wow', {'data': 'Got response from server'})
 
 @socketio.on('connect')
