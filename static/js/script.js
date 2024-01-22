@@ -157,7 +157,15 @@ for(var i = 0; i < 14; i++){
 console.log(well_list)
 var socket = io();
 socket.emit('test', {well_list, level});
+socket.on('wow', function(data) {
+    console.log(data);
+});
 }
+
+//var socket = io();
+//socket.on('wow', function(data) {
+//    console.log(data);
+//});
 
 //Функция возвращает сторону лунки well.
 function getSide( well )
