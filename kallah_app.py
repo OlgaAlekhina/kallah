@@ -25,12 +25,11 @@ def handle_test(data):
     wells = []
     for well in well_list:
         wells.append(int(well))
-    print(wells)
     my_board = Board(wells)
     player = Player(BOTTOM_PLAYER, 2)
     best_move = player.best_move(my_board)
     print(best_move)
-    emit('wow', {'data': best_move})
+    emit('best_move', {'data': best_move})
 
 @socketio.on('connect')
 def test_connect():
